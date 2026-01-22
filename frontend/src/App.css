@@ -1,0 +1,188 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem; /* Compacted */
+    text-align: left;
+}
+
+/* --- General Layout & Header --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem; /* Compacted */
+    border-bottom: 1px solid #444;
+    padding-bottom: 0.8rem; /* Compacted */
+}
+header h1 {
+    margin: 0;
+}
+header nav {
+    display: flex;
+    gap: 1rem;
+}
+header nav a {
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+header nav a:hover {
+    background-color: #3a3a3a;
+}
+
+/* --- Page-specific Header (for Results Page) --- */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.page-header h2 {
+    margin: 0;
+}
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* --- Config Page --- */
+.config-section {
+    border: 1px solid #555;
+    padding: 1rem; /* Compacted */
+    border-radius: 8px;
+    margin-bottom: 1.5rem; /* Compacted */
+    background-color: #242424;
+}
+.config-section legend {
+    padding: 0 0.5rem;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.config-section label {
+    margin-right: 0.5rem;
+    font-weight: 500;
+}
+.config-section input[type="number"] {
+    width: 80px;
+}
+
+.pots-container,
+.teams-grid {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+}
+.pots-container::-webkit-scrollbar,
+.teams-grid::-webkit-scrollbar {
+    height: 8px;
+}
+.pots-container::-webkit-scrollbar-thumb,
+.teams-grid::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 4px;
+}
+
+.pot-card {
+    flex: 0 0 180px;
+    border: 1px solid #555;
+    padding: 0.75rem;
+    border-radius: 8px;
+    background-color: #2a2a2a;
+    margin-right: 0.75rem;
+}
+.pot-card h3 {
+    margin-top: 0;
+    border-bottom: 1px solid #444;
+    padding-bottom: 0.5rem;
+}
+
+.role-section h4 {
+    margin-bottom: 0.4rem;
+    color: #a0a0a0;
+    font-size: 0.85em;
+}
+.role-section input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0.4rem;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.9em;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+.actions button {
+    font-size: 1em;
+}
+.actions .primary-action {
+    background-color: #646cff;
+    color: white;
+}
+.status-message {
+    color: #aaa;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+/* --- Results Page --- */
+.centered-message {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.team-card {
+    flex: 0 0 300px; /* Compacted */
+    background-color: #2a2a2a;
+    border: 1px solid #555;
+    border-radius: 8px;
+    padding: 1rem; /* Compacted */
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+    margin-right: 1rem; /* Compacted */
+}
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.team-card h3 {
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #444;
+}
+
+.team-color-badge {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 12px;
+    color: #1a1a1a;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.player-list ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+.player-list li {
+    background-color: #333;
+    padding: 6px 10px; /* Compacted */
+    border-radius: 4px;
+    margin-bottom: 5px; /* Compacted */
+    font-size: 0.95em;
+}

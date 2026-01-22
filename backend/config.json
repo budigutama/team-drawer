@@ -1,0 +1,90 @@
+{
+  "jumlah_tim": 3,
+  "clr": [
+    "red",
+    "black",
+    "white"
+  ],
+  "gk": [
+    "1. Asep",
+    "Mendoza",
+    "3. Martin"
+  ],
+  "pots": [
+    {
+      "name": "Pot 1",
+      "players": {
+        "#DEF": [
+          "James",
+          "Julio",
+          "Matricardi"
+        ],
+        "#MID": [
+          "1. Ojan",
+          "2. Abbah",
+          "3. Rangga"
+        ],
+        "#FW": [
+          "1. Dhaleng",
+          "2. Osan",
+          "3. Mas Hendar"
+        ]
+      }
+    },
+    {
+      "name": "Pot 2",
+      "players": {
+        "#DEF": [
+          "5. Ari",
+          "6. Reno",
+          "7. Opick"
+        ],
+        "#MID": [
+          "5. Erwin",
+          "6. Noval",
+          "7. Panji"
+        ],
+        "#FW": [
+          "5. Afri",
+          "6. Rama",
+          "7. Pak Tommy"
+        ]
+      }
+    },
+    {
+      "name": "Pot 3",
+      "players": {
+        "#DEF": [
+          "9. Ogan",
+          "10. Ramos",
+          "11. Orock"
+        ],
+        "#MID": [
+          "9. Garnacho",
+          "10. Ijay",
+          "11. Iko"
+        ]
+      }
+    },
+    {
+      "name": "Pot 4",
+      "players": {
+        "#MID": [
+          "13. Abo",
+          "14. Hasdi",
+          "15. A Ade"
+        ]
+      }
+    },
+    {
+      "name": "Pot 5",
+      "players": {
+        "#MID": [
+          "17. Doni",
+          "18. Ipey",
+          "19. Kang Robby"
+        ]
+      }
+    }
+  ]
+}
