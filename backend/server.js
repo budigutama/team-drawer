@@ -19,9 +19,8 @@ app.use(express.json());
 
 const configPath = path.join(__dirname, "config.json");
 
-app.get("/", (req, res) => {
-  res.send("Backend server is running!");
-});
+// Serve frontend static files
+app.use(express.static(path.join(__dirname, "public")));
 
 // Endpoint to get the current config
 app.get("/api/config", (req, res) => {
@@ -77,6 +76,11 @@ app.post("/api/randomize", (req, res) => {
       });
     }
   });
+});
+
+// SPA fallback - serve index.html for all non-API routes
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.listen(port, () => {
