@@ -267,7 +267,6 @@ function ConfigPage() {
       </fieldset>
 
       <div className="actions">
-        <button onClick={handleSave}>Save Config</button>
         <button onClick={handleRandomize} className="primary-action">
           Save & Randomize
         </button>

@@ -1,4 +1,14 @@
 {
+  "users": [
+    {
+      "username": "admin",
+      "password": "sixam"
+    },
+    {
+      "username": "user1",
+      "password": "password1"
+    }
+  ],
   "jumlah_tim": 3,
   "clr": [
     "red",

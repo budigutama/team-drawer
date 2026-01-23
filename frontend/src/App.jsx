@@ -1,4 +1,11 @@
-import { Routes, Route, Link, Navigate, useLocation } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Link,
+  Navigate,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import "./App.css";
 import ConfigPage from "./ConfigPage";
 import ResultsPage from "./ResultsPage";
@@ -14,7 +21,13 @@ function ProtectedRoute({ children }) {
 
 function App() {
   const location = useLocation();
+  const navigate = useNavigate();
   const isLoginPage = location.pathname === "/login";
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("authenticated");
+    navigate("/login");
+  };
 
   return (
     <>
@@ -24,6 +37,9 @@ function App() {
           <nav>
             <Link to="/">Configuration</Link>
             <Link to="/results">Results</Link>
+            <button onClick={handleLogout} className="logout-button">
+              Logout
+            </button>
           </nav>
         </header>
       )}

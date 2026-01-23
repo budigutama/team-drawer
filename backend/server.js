@@ -22,6 +22,32 @@ const configPath = path.join(__dirname, "config.json");
 // Serve frontend static files
 app.use(express.static(path.join(__dirname, "public")));
 
+// Endpoint for login
+app.post("/api/login", (req, res) => {
+  const { username, password } = req.body;
+  fs.readFile(configPath, "utf8", (err, data) => {
+    if (err) {
+      console.error("Error reading config file:", err);
+      return res.status(500).json({ success: false, error: "Server error." });
+    }
+    try {
+      const config = JSON.parse(data);
+      const users = config.users || [];
+      const matched = users.find(
+        (u) => u.username === username && u.password === password,
+      );
+      if (matched) {
+        res.json({ success: true });
+      } else {
+        res.json({ success: false });
+      }
+    } catch (parseErr) {
+      console.error("Error parsing config file:", parseErr);
+      return res.status(500).json({ success: false, error: "Server error." });
+    }
+  });
+});
+
 // Endpoint to get the current config
 app.get("/api/config", (req, res) => {
   fs.readFile(configPath, "utf8", (err, data) => {

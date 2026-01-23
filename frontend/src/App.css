@@ -20,6 +20,7 @@ header h1 {
 header nav {
     display: flex;
     gap: 1rem;
+    align-items: center;
 }
 header nav a {
     text-decoration: none;
@@ -30,6 +31,19 @@ header nav a {
 }
 header nav a:hover {
     background-color: #3a3a3a;
+}
+header nav .logout-button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+header nav .logout-button:hover {
+    background-color: #666;
 }
 
 /* --- Page-specific Header (for Results Page) --- */
@@ -128,6 +142,7 @@ header nav a:hover {
     background-color: #646cff;
     color: white;
 }
+
 .status-message {
     color: #aaa;
     font-size: 0.9em;
@@ -221,7 +236,8 @@ header nav a:hover {
     gap: 1rem;
 }
 
-.login-card input[type="password"] {
+.login-card input[type="password"],
+.login-card input[type="text"] {
     padding: 0.75rem 1rem;
     font-size: 1em;
     border-radius: 6px;
