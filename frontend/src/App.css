@@ -156,15 +156,15 @@ header nav .logout-button:hover {
 }
 
 .team-card {
-    flex: 0 0 300px; /* Compacted */
+    flex: 0 0 200px;
     background-color: #2a2a2a;
     border: 1px solid #555;
     border-radius: 8px;
-    padding: 1rem; /* Compacted */
+    padding: 0.75rem;
     transition:
         transform 0.2s,
         box-shadow 0.2s;
-    margin-right: 1rem; /* Compacted */
+    margin-right: 0.75rem;
 }
 .team-card:hover {
     transform: translateY(-5px);
@@ -265,4 +265,150 @@ header nav .logout-button:hover {
     color: #ff6b6b;
     margin: 0;
     font-size: 0.9em;
+}
+
+/* --- Player & Event Management Pages --- */
+.players-grid,
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.player-card,
+.event-card {
+    background-color: #2a2a2a;
+    border: 1px solid #555;
+    border-radius: 8px;
+    padding: 1rem;
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.player-card:hover,
+.event-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.player-card h3,
+.event-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+.player-card p,
+.event-card p {
+    margin: 0.5rem 0;
+    font-size: 0.95em;
+}
+
+.stats-summary {
+    background-color: #2a2a2a;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin: 1rem 0;
+    border-left: 4px solid #646cff;
+}
+
+.player-actions,
+.event-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.player-actions button,
+.event-actions button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9em;
+}
+
+/* --- Modal Styles --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background-color: #242424;
+    border: 1px solid #555;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal h3 {
+    margin-top: 0;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+
+/* --- Form Styles --- */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #555;
+    background-color: #1a1a1a;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.form-group input[type="date"],
+.form-group input[type="datetime-local"] {
+    color-scheme: dark;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* --- Participant Management --- */
+.participant-item {
+    background-color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.participant-summary {
+    background-color: #2a2a2a;
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
 }

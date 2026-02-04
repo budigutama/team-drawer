@@ -9,16 +9,18 @@
       "password": "password1"
     }
   ],
-  "jumlah_tim": 3,
+  "jumlah_tim": 4,
   "clr": [
     "red",
     "pink",
-    "green"
+    "green",
+    "blue"
   ],
   "gk": [
     "1. Asep",
     "Mendoza",
-    "3. Martin"
+    "3. Martin",
+    "buffon"
   ],
   "pots": [
     {
@@ -27,17 +29,20 @@
         "#DEF": [
           "James",
           "Julio",
-          "Matricardi"
+          "Matricardi",
+          "Dadang"
         ],
         "#MID": [
           "1. Ojan",
           "2. Abbah",
-          "3. Rangga"
+          "3. Rangga",
+          "player6"
         ],
         "#FW": [
           "1. Dhaleng",
           "2. Osan",
-          "3. Mas Hendar"
+          "3. Mas Hendar",
+          "test"
         ]
       }
     },
@@ -47,17 +52,20 @@
         "#DEF": [
           "5. Ari",
           "6. Reno",
-          "7. Opick"
+          "7. Opick",
+          "Jefrey"
         ],
         "#MID": [
           "5. Erwin",
           "6. Noval",
-          "7. Panji"
+          "7. Panji",
+          "oke"
         ],
         "#FW": [
           "5. Afri",
           "6. Rama",
-          "7. Pak Tommy"
+          "7. Pak Tommy",
+          "haaland"
         ]
       }
     },
@@ -67,12 +75,14 @@
         "#DEF": [
           "9. Ogan",
           "10. Ramos",
-          "11. Orock"
+          "11. Orock",
+          "def 6"
         ],
         "#MID": [
           "9. Garnacho",
           "10. Ijay",
-          "11. Iko"
+          "11. Iko",
+          "siip"
         ]
       }
     },
@@ -82,7 +92,8 @@
         "#MID": [
           "13. Abo",
           "14. Hasdi",
-          "15. A Ade"
+          "15. A Ade",
+          "mid 6"
         ]
       }
     },
@@ -92,7 +103,8 @@
         "#MID": [
           "17. Doni",
           "18. Ipey",
-          "19. Kang Robby"
+          "19. Kang Robby",
+          "player 5"
         ]
       }
     }

@@ -22,28 +22,37 @@ function ConfigPage() {
   const [config, setConfig] = useState(null);
   const [status, setStatus] = useState("");
 
+  const adjustArrayToSize = (arr, size) => {
+    if (!arr) return Array(size).fill("");
+    if (arr.length < size) {
+      return [...arr, ...Array(size - arr.length).fill("")];
+    }
+    return arr.slice(0, size);
+  };
+
+  const adjustPotsToTeamCount = (pots, teamCount) => {
+    if (!pots) return [];
+    return pots.map((pot) => ({
+      ...pot,
+      players: Object.fromEntries(
+        Object.entries(pot.players).map(([role, players]) => [
+          role,
+          adjustArrayToSize(players, teamCount),
+        ]),
+      ),
+    }));
+  };
+
   useEffect(() => {
     fetch(`${API_URL}/config`)
       .then((res) => res.json())
       .then((data) => {
-        // Ensure clr/gk arrays exist and match team count
+        // Ensure clr/gk/pots arrays exist and match team count
         if (data) {
           const teamCount = data.jumlah_tim || 0;
-          data.clr = data.clr || [];
-          data.gk = data.gk || [];
-
-          // Pad or truncate clr array
-          if (data.clr.length < teamCount) {
-            data.clr.push(...Array(teamCount - data.clr.length).fill(""));
-          } else {
-            data.clr = data.clr.slice(0, teamCount);
-          }
-          // Pad or truncate gk array
-          if (data.gk.length < teamCount) {
-            data.gk.push(...Array(teamCount - data.gk.length).fill(""));
-          } else {
-            data.gk = data.gk.slice(0, teamCount);
-          }
+          data.clr = adjustArrayToSize(data.clr, teamCount);
+          data.gk = adjustArrayToSize(data.gk, teamCount);
+          data.pots = adjustPotsToTeamCount(data.pots, teamCount);
         }
         setConfig(data);
       })
@@ -107,21 +116,10 @@ function ConfigPage() {
     const newSize = parseInt(e.target.value, 10) || 0;
     newConfig.jumlah_tim = newSize;
 
-    // Adjust CLR array
-    const oldClrSize = newConfig.clr.length;
-    if (newSize > oldClrSize) {
-      newConfig.clr.push(...Array(newSize - oldClrSize).fill(""));
-    } else {
-      newConfig.clr = newConfig.clr.slice(0, newSize);
-    }
-
-    // Adjust GK array
-    const oldGkSize = newConfig.gk.length;
-    if (newSize > oldGkSize) {
-      newConfig.gk.push(...Array(newSize - oldGkSize).fill(""));
-    } else {
-      newConfig.gk = newConfig.gk.slice(0, newSize);
-    }
+    // Adjust CLR, GK, and pots arrays
+    newConfig.clr = adjustArrayToSize(newConfig.clr, newSize);
+    newConfig.gk = adjustArrayToSize(newConfig.gk, newSize);
+    newConfig.pots = adjustPotsToTeamCount(newConfig.pots, newSize);
 
     setConfig(newConfig);
   };

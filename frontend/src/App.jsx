@@ -10,6 +10,8 @@ import "./App.css";
 import ConfigPage from "./ConfigPage";
 import ResultsPage from "./ResultsPage";
 import LoginPage from "./LoginPage";
+import PlayerManagementPage from "./PlayerManagementPage";
+import EventManagementPage from "./EventManagementPage";
 
 function ProtectedRoute({ children }) {
   const isAuthenticated = sessionStorage.getItem("authenticated") === "true";
@@ -36,6 +38,8 @@ function App() {
           <h1>Team Drawer</h1>
           <nav>
             <Link to="/">Configuration</Link>
+            <Link to="/players">Players</Link>
+            <Link to="/events">Events</Link>
             <Link to="/results">Results</Link>
             <button onClick={handleLogout} className="logout-button">
               Logout
@@ -51,6 +55,22 @@ function App() {
             element={
               <ProtectedRoute>
                 <ConfigPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/players"
+            element={
+              <ProtectedRoute>
+                <PlayerManagementPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/events"
+            element={
+              <ProtectedRoute>
+                <EventManagementPage />
               </ProtectedRoute>
             }
           />
