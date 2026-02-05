@@ -403,6 +403,35 @@ app.use((req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
+// Auto-seed default users if DB is empty
+async function initDatabase() {
+  try {
+    const userCount = await prisma.user.count();
+    if (userCount === 0) {
+      console.log("No users found, seeding default users...");
+      const defaultUsers = [
+        { username: "admin", password: "admin123", role: "admin" },
+        { username: "user", password: "user123", role: "user" },
+      ];
+      for (const u of defaultUsers) {
+        const hashedPassword = await bcrypt.hash(u.password, 10);
+        await prisma.user.create({
+          data: {
+            username: u.username,
+            passwordHash: hashedPassword,
+            role: u.role,
+          },
+        });
+        console.log(`  User seeded: ${u.username}`);
+      }
+    }
+  } catch (error) {
+    console.error("initDatabase error:", error.message);
+  }
+}
+
+initDatabase().then(() => {
+  app.listen(port, () => {
+    console.log(`Server listening at http://localhost:${port}`);
+  });
 });
