@@ -25,3 +25,6 @@ nul
 
 # Claude
 .claude/
+
+# Database
+*.db
