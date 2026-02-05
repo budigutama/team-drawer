@@ -35,7 +35,14 @@ function App() {
     <>
       {!isLoginPage && (
         <header>
-          <h1>Team Drawer</h1>
+          <div className="header-brand">
+            <img
+              src="/Logo sixam.png"
+              alt="6AM Fun Football"
+              className="header-logo"
+            />
+            <h1>6 AM Fun Football</h1>
+          </div>
           <nav>
             <Link to="/">Configuration</Link>
             <Link to="/players">Players</Link>

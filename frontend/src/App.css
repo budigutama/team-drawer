@@ -1,7 +1,21 @@
+/* ============================================================
+   Team Drawer — Blaugrana Theme (inspired by FC Barcelona)
+   Palette:
+     Navy      #0f1623   (deep background)
+     Card BG   #151d2b   (card surfaces)
+     Card BG2  #1a2438   (slightly lighter cards / inputs)
+     Garnet    #9b0041   (primary accent — buttons, highlights)
+     Garnet Lt #b8004e   (hover state)
+     Blue      #1a56db   (secondary accent)
+     Gold      #FFCA00   (badge / highlight strip)
+     Border    #243044   (subtle borders)
+     Text Mute #8a9bb5   (muted / secondary text)
+   ============================================================ */
+
 #root {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 1rem; /* Compacted */
+    padding: 1rem;
     text-align: left;
 }
 
@@ -10,40 +24,74 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem; /* Compacted */
-    border-bottom: 1px solid #444;
-    padding-bottom: 0.8rem; /* Compacted */
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(90deg, #9b0041, #1a56db, #ffca00) 1;
+    padding-bottom: 0.9rem;
+    background: linear-gradient(
+        180deg,
+        rgba(26, 86, 219, 0.06) 0%,
+        transparent 100%
+    );
 }
 header h1 {
     margin: 0;
+    background: linear-gradient(135deg, #ffffff 40%, #ffca00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
 }
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.header-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
 header nav {
     display: flex;
-    gap: 1rem;
+    gap: 0.6rem;
     align-items: center;
 }
 header nav a {
     text-decoration: none;
     font-weight: 500;
-    padding: 0.5rem 1rem;
+    padding: 0.45rem 1rem;
     border-radius: 6px;
-    transition: background-color 0.2s;
+    color: rgba(255, 255, 255, 0.85);
+    transition:
+        background-color 0.2s,
+        color 0.2s;
+    font-size: 0.92em;
+    letter-spacing: 0.3px;
 }
 header nav a:hover {
-    background-color: #3a3a3a;
+    background-color: rgba(26, 86, 219, 0.18);
+    color: #fff;
 }
 header nav .logout-button {
-    background-color: #555;
+    background: linear-gradient(135deg, #9b0041, #7a0034);
     color: white;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.45rem 1rem;
     border-radius: 6px;
     font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition:
+        filter 0.2s,
+        transform 0.15s;
+    font-size: 0.92em;
+    letter-spacing: 0.3px;
 }
 header nav .logout-button:hover {
-    background-color: #666;
+    filter: brightness(1.15);
+    transform: translateY(-1px);
 }
 
 /* --- Page-specific Header (for Results Page) --- */
@@ -55,6 +103,7 @@ header nav .logout-button:hover {
 }
 .page-header h2 {
     margin: 0;
+    color: #fff;
 }
 .header-actions {
     display: flex;
@@ -64,20 +113,23 @@ header nav .logout-button:hover {
 
 /* --- Config Page --- */
 .config-section {
-    border: 1px solid #555;
-    padding: 1rem; /* Compacted */
-    border-radius: 8px;
-    margin-bottom: 1.5rem; /* Compacted */
-    background-color: #242424;
+    border: 1px solid #243044;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    background-color: #151d2b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 .config-section legend {
-    padding: 0 0.5rem;
-    font-size: 1.2em;
+    padding: 0 0.6rem;
+    font-size: 1.15em;
     font-weight: bold;
+    color: #fff;
 }
 .config-section label {
     margin-right: 0.5rem;
     font-weight: 500;
+    color: #c8d4e0;
 }
 .config-section input[type="number"] {
     width: 80px;
@@ -90,43 +142,69 @@ header nav .logout-button:hover {
     padding-bottom: 1rem;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
+    scrollbar-color: #9b0041 #151d2b;
 }
 .pots-container::-webkit-scrollbar,
 .teams-grid::-webkit-scrollbar {
-    height: 8px;
+    height: 7px;
+}
+.pots-container::-webkit-scrollbar-track,
+.teams-grid::-webkit-scrollbar-track {
+    background: #151d2b;
+    border-radius: 4px;
 }
 .pots-container::-webkit-scrollbar-thumb,
 .teams-grid::-webkit-scrollbar-thumb {
-    background-color: #555;
+    background: linear-gradient(90deg, #9b0041, #1a56db);
     border-radius: 4px;
 }
 
 .pot-card {
     flex: 0 0 180px;
-    border: 1px solid #555;
+    border: 1px solid #243044;
     padding: 0.75rem;
-    border-radius: 8px;
-    background-color: #2a2a2a;
+    border-radius: 10px;
+    background-color: #151d2b;
     margin-right: 0.75rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+.pot-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 14px rgba(155, 0, 65, 0.25);
 }
 .pot-card h3 {
     margin-top: 0;
-    border-bottom: 1px solid #444;
+    border-bottom: 2px solid #9b0041;
     padding-bottom: 0.5rem;
+    color: #fff;
 }
 
 .role-section h4 {
     margin-bottom: 0.4rem;
-    color: #a0a0a0;
-    font-size: 0.85em;
+    color: #8a9bb5;
+    font-size: 0.82em;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
 }
 .role-section input {
     display: block;
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 0.4rem;
-    padding: 0.4rem 0.5rem;
+    padding: 0.4rem 0.55rem;
     font-size: 0.9em;
+    background-color: #1a2438;
+    border: 1px solid #243044;
+    border-radius: 5px;
+    color: #e0e6ed;
+    transition: border-color 0.2s;
+}
+.role-section input:focus {
+    outline: none;
+    border-color: #1a56db;
 }
 
 .actions {
@@ -139,12 +217,25 @@ header nav .logout-button:hover {
     font-size: 1em;
 }
 .actions .primary-action {
-    background-color: #646cff;
+    background: linear-gradient(135deg, #9b0041, #7a0034);
     color: white;
+    border: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition:
+        filter 0.2s,
+        transform 0.15s;
+}
+.actions .primary-action:hover {
+    filter: brightness(1.15);
+    transform: translateY(-1px);
 }
 
 .status-message {
-    color: #aaa;
+    color: #8a9bb5;
     font-size: 0.9em;
     margin: 0;
 }
@@ -153,22 +244,25 @@ header nav .logout-button:hover {
 .centered-message {
     text-align: center;
     margin-top: 4rem;
+    color: #8a9bb5;
 }
 
 .team-card {
-    flex: 0 0 200px;
-    background-color: #2a2a2a;
-    border: 1px solid #555;
-    border-radius: 8px;
+    flex: 0 0 230px;
+    background-color: #151d2b;
+    border: 1px solid #243044;
+    border-radius: 10px;
     padding: 0.75rem;
     transition:
         transform 0.2s,
         box-shadow 0.2s;
     margin-right: 0.75rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    border-top: 3px solid #9b0041;
 }
 .team-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 20px rgba(155, 0, 65, 0.3);
 }
 
 .team-card h3 {
@@ -177,7 +271,8 @@ header nav .logout-button:hover {
     justify-content: space-between;
     align-items: center;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid #243044;
+    color: #fff;
 }
 
 .team-color-badge {
@@ -187,6 +282,7 @@ header nav .logout-button:hover {
     color: #1a1a1a;
     font-weight: bold;
     text-transform: uppercase;
+    letter-spacing: 0.4px;
 }
 
 .player-list ul {
@@ -195,11 +291,13 @@ header nav .logout-button:hover {
     margin: 0;
 }
 .player-list li {
-    background-color: #333;
-    padding: 6px 10px; /* Compacted */
-    border-radius: 4px;
-    margin-bottom: 5px; /* Compacted */
+    background-color: #1a2438;
+    padding: 6px 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
     font-size: 0.95em;
+    color: #c8d4e0;
+    border-left: 3px solid #1a56db;
 }
 
 /* --- Login Page --- */
@@ -211,23 +309,38 @@ header nav .logout-button:hover {
 }
 
 .login-card {
-    background-color: #242424;
-    border: 1px solid #555;
-    border-radius: 12px;
-    padding: 2.5rem;
+    background: linear-gradient(160deg, #151d2b 0%, #0f1623 100%);
+    border: 1px solid #243044;
+    border-radius: 14px;
+    padding: 2.8rem 2.5rem;
     width: 100%;
-    max-width: 360px;
+    max-width: 380px;
     text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+.login-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #9b0041, #1a56db, #ffca00);
 }
 
 .login-card h2 {
     margin-top: 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
+    color: #fff;
+    font-size: 1.6em;
 }
 
 .login-card p {
-    color: #aaa;
-    margin-bottom: 1.5rem;
+    color: #8a9bb5;
+    margin-bottom: 1.6rem;
+    font-size: 0.93em;
 }
 
 .login-card form {
@@ -240,25 +353,40 @@ header nav .logout-button:hover {
 .login-card input[type="text"] {
     padding: 0.75rem 1rem;
     font-size: 1em;
-    border-radius: 6px;
-    border: 1px solid #555;
-    background-color: #1a1a1a;
+    border-radius: 7px;
+    border: 1px solid #243044;
+    background-color: #1a2438;
     color: #fff;
     text-align: center;
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+.login-card input[type="password"]:focus,
+.login-card input[type="text"]:focus {
+    outline: none;
+    border-color: #1a56db;
+    box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.2);
 }
 
 .login-card .primary-action {
     padding: 0.75rem;
     font-size: 1em;
-    background-color: #646cff;
+    background: linear-gradient(135deg, #9b0041, #7a0034);
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 7px;
     cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition:
+        filter 0.2s,
+        transform 0.15s;
 }
 
 .login-card .primary-action:hover {
-    background-color: #535bf2;
+    filter: brightness(1.15);
+    transform: translateY(-1px);
 }
 
 .login-error {
@@ -278,39 +406,43 @@ header nav .logout-button:hover {
 
 .player-card,
 .event-card {
-    background-color: #2a2a2a;
-    border: 1px solid #555;
-    border-radius: 8px;
+    background-color: #151d2b;
+    border: 1px solid #243044;
+    border-radius: 10px;
     padding: 1rem;
     transition:
         transform 0.2s,
         box-shadow 0.2s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .player-card:hover,
 .event-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 18px rgba(155, 0, 65, 0.25);
 }
 
 .player-card h3,
 .event-card h3 {
     margin-top: 0;
     margin-bottom: 0.75rem;
+    color: #fff;
 }
 
 .player-card p,
 .event-card p {
     margin: 0.5rem 0;
     font-size: 0.95em;
+    color: #c8d4e0;
 }
 
 .stats-summary {
-    background-color: #2a2a2a;
+    background-color: #151d2b;
     padding: 0.75rem 1rem;
-    border-radius: 6px;
+    border-radius: 7px;
     margin: 1rem 0;
-    border-left: 4px solid #646cff;
+    border-left: 4px solid #ffca00;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .player-actions,
@@ -325,6 +457,20 @@ header nav .logout-button:hover {
 .event-actions button {
     padding: 0.4rem 0.8rem;
     font-size: 0.9em;
+    background-color: #1a2438;
+    color: #c8d4e0;
+    border: 1px solid #243044;
+    border-radius: 5px;
+    cursor: pointer;
+    transition:
+        background-color 0.2s,
+        border-color 0.2s;
+}
+.player-actions button:hover,
+.event-actions button:hover {
+    background-color: rgba(26, 86, 219, 0.2);
+    border-color: #1a56db;
+    color: #fff;
 }
 
 /* --- Modal Styles --- */
@@ -334,7 +480,8 @@ header nav .logout-button:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(4px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -342,18 +489,31 @@ header nav .logout-button:hover {
 }
 
 .modal {
-    background-color: #242424;
-    border: 1px solid #555;
-    border-radius: 12px;
+    background: linear-gradient(160deg, #151d2b 0%, #0f1623 100%);
+    border: 1px solid #243044;
+    border-radius: 14px;
     padding: 2rem;
     max-width: 600px;
     width: 90%;
     max-height: 80vh;
     overflow-y: auto;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+.modal::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #9b0041, #1a56db);
+    border-radius: 14px 14px 0 0;
 }
 
 .modal h3 {
     margin-top: 0;
+    color: #fff;
 }
 
 .modal-actions {
@@ -361,6 +521,32 @@ header nav .logout-button:hover {
     gap: 1rem;
     justify-content: flex-end;
     margin-top: 1.5rem;
+}
+.modal-actions button {
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    border: 1px solid #243044;
+    background-color: #1a2438;
+    color: #c8d4e0;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition:
+        background-color 0.2s,
+        border-color 0.2s;
+}
+.modal-actions button:hover {
+    background-color: rgba(26, 86, 219, 0.2);
+    border-color: #1a56db;
+    color: #fff;
+}
+.modal-actions button.primary-action {
+    background: linear-gradient(135deg, #9b0041, #7a0034);
+    border-color: transparent;
+    color: #fff;
+    font-weight: 600;
+}
+.modal-actions button.primary-action:hover {
+    filter: brightness(1.15);
 }
 
 /* --- Form Styles --- */
@@ -372,18 +558,29 @@ header nav .logout-button:hover {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
+    color: #c8d4e0;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 0.5rem;
-    border-radius: 4px;
-    border: 1px solid #555;
-    background-color: #1a1a1a;
+    padding: 0.55rem 0.7rem;
+    border-radius: 6px;
+    border: 1px solid #243044;
+    background-color: #1a2438;
     color: #fff;
     box-sizing: border-box;
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #1a56db;
+    box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.18);
 }
 
 .form-group input[type="date"],
@@ -397,18 +594,26 @@ header nav .logout-button:hover {
 
 /* --- Participant Management --- */
 .participant-item {
-    background-color: #333;
+    background-color: #1a2438;
     padding: 0.5rem 1rem;
-    border-radius: 4px;
+    border-radius: 5px;
     margin-bottom: 0.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 1px solid #243044;
+    color: #c8d4e0;
+    transition: border-color 0.2s;
+}
+.participant-item:hover {
+    border-color: #1a56db;
 }
 
 .participant-summary {
-    background-color: #2a2a2a;
+    background-color: #151d2b;
     padding: 0.75rem;
-    border-radius: 6px;
+    border-radius: 7px;
     margin-bottom: 1rem;
+    border: 1px solid #243044;
+    color: #c8d4e0;
 }
