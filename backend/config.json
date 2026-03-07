@@ -9,40 +9,35 @@
       "password": "password1"
     }
   ],
-  "jumlah_tim": 4,
+  "jumlah_tim": 3,
   "clr": [
     "red",
-    "pink",
-    "green",
-    "blue"
+    "white",
+    "green"
   ],
   "gk": [
-    "1. Asep",
-    "Mendoza",
-    "3. Martin",
-    "buffon"
+    "1. BUCHIN",
+    "2. RIDHO",
+    "3. TEJA PAKUALAM"
   ],
   "pots": [
     {
       "name": "Pot 1",
       "players": {
         "#DEF": [
-          "James",
-          "Julio",
-          "Matricardi",
-          "Dadang"
+          "RENGGA",
+          "SDE",
+          "OPICK"
         ],
         "#MID": [
-          "1. Ojan",
-          "2. Abbah",
-          "3. Rangga",
-          "player6"
+          "RANGGA",
+          "JAWA",
+          "OSAN"
         ],
         "#FW": [
-          "1. Dhaleng",
-          "2. Osan",
-          "3. Mas Hendar",
-          "test"
+          "BUDI",
+          "HENDAR",
+          "PLAYER"
         ]
       }
     },
@@ -50,22 +45,19 @@
       "name": "Pot 2",
       "players": {
         "#DEF": [
-          "5. Ari",
-          "6. Reno",
-          "7. Opick",
-          "Jefrey"
+          "LUCKMAN",
+          "WAHYU",
+          "ARVIEN"
         ],
         "#MID": [
-          "5. Erwin",
-          "6. Noval",
-          "7. Panji",
-          "oke"
+          "MARCEL",
+          "SAHRUL",
+          "ERWIN"
         ],
         "#FW": [
-          "5. Afri",
-          "6. Rama",
-          "7. Pak Tommy",
-          "haaland"
+          "RAMA",
+          "PAK TOMMY",
+          "AFRI"
         ]
       }
     },
@@ -73,16 +65,14 @@
       "name": "Pot 3",
       "players": {
         "#DEF": [
-          "9. Ogan",
-          "10. Ramos",
-          "11. Orock",
-          "def 6"
+          "IYANK",
+          "ALVIN",
+          "DENI UCOK"
         ],
         "#MID": [
-          "9. Garnacho",
-          "10. Ijay",
-          "11. Iko",
-          "siip"
+          "PANJI",
+          "IKO",
+          "TOWIL"
         ]
       }
     },
@@ -90,10 +80,9 @@
       "name": "Pot 4",
       "players": {
         "#MID": [
-          "13. Abo",
-          "14. Hasdi",
-          "15. A Ade",
-          "mid 6"
+          "HELMI",
+          "HASDI",
+          "PLAYER"
         ]
       }
     },
@@ -101,10 +90,9 @@
       "name": "Pot 5",
       "players": {
         "#MID": [
-          "17. Doni",
-          "18. Ipey",
-          "19. Kang Robby",
-          "player 5"
+          "IPEY",
+          "PAK BERRY",
+          "A ADE"
         ]
       }
     }

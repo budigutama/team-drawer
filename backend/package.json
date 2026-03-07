@@ -4,6 +4,7 @@
   "description": "Team Drawer Backend API",
   "main": "server.js",
   "scripts": {
+    "build": "cd ../frontend && npm install && npm run build && cp -r dist/* ../backend/public/ && cd ../backend && npx prisma generate",
     "start": "prisma migrate deploy && node server.js",
     "dev": "node server.js"
   },
@@ -20,7 +21,6 @@
   "dependencies": {
     "@prisma/client": "^5.22.0",
     "bcryptjs": "^3.0.3",
-    "better-sqlite3": "^12.6.2",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
