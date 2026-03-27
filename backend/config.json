@@ -13,31 +13,31 @@
   "clr": [
     "red",
     "white",
-    "green"
+    "black"
   ],
   "gk": [
-    "1. BUCHIN",
-    "2. RIDHO",
-    "3. TEJA PAKUALAM"
+    "DO",
+    "Mas PRAY",
+    "Marteen Paes"
   ],
   "pots": [
     {
       "name": "Pot 1",
       "players": {
         "#DEF": [
-          "RENGGA",
+          "PAK ALDO",
           "SDE",
-          "OPICK"
+          "RENO"
         ],
         "#MID": [
-          "RANGGA",
-          "JAWA",
-          "OSAN"
+          "ABAH",
+          "OJAN",
+          "RANGGA"
         ],
         "#FW": [
           "BUDI",
           "HENDAR",
-          "PLAYER"
+          "ABDUL ROHMAN"
         ]
       }
     },
@@ -45,14 +45,14 @@
       "name": "Pot 2",
       "players": {
         "#DEF": [
-          "LUCKMAN",
-          "WAHYU",
+          "RIANDEL",
+          "LUKMAN",
           "ARVIEN"
         ],
         "#MID": [
+          "OSAN",
           "MARCEL",
-          "SAHRUL",
-          "ERWIN"
+          "IJAY"
         ],
         "#FW": [
           "RAMA",
@@ -65,14 +65,14 @@
       "name": "Pot 3",
       "players": {
         "#DEF": [
-          "IYANK",
-          "ALVIN",
-          "DENI UCOK"
+          "FIKO",
+          "OPICK",
+          "SYAM"
         ],
         "#MID": [
-          "PANJI",
-          "IKO",
-          "TOWIL"
+          "HELMI",
+          "WAWAN",
+          "ERWIN"
         ]
       }
     },
@@ -80,9 +80,9 @@
       "name": "Pot 4",
       "players": {
         "#MID": [
-          "HELMI",
-          "HASDI",
-          "PLAYER"
+          "ABO",
+          "PANJI",
+          "HASDI"
         ]
       }
     },
@@ -90,9 +90,9 @@
       "name": "Pot 5",
       "players": {
         "#MID": [
-          "IPEY",
-          "PAK BERRY",
-          "A ADE"
+          "A ADE",
+          "DONI",
+          "IPEY"
         ]
       }
     }
