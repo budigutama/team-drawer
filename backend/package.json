@@ -4,7 +4,7 @@
   "description": "Team Drawer Backend API",
   "main": "server.js",
   "scripts": {
-    "postinstall": "npx prisma generate",
+    "postinstall": "npx prisma generate && npx prisma migrate deploy",
     "build": "npx prisma generate && npx prisma migrate deploy",
     "start": "node server.js",
     "dev": "node server.js"
