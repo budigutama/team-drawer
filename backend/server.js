@@ -430,8 +430,12 @@ async function initDatabase() {
   }
 }
 
-initDatabase().then(() => {
+initDatabase().catch(console.error);
+
+if (require.main === module) {
   app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`);
   });
-});
+}
+
+module.exports = app;
