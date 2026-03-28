@@ -98,6 +98,15 @@ model TeamColor {
   @@map("team_colors")
 }
 
+model Config {
+  id        Int      @id @default(autoincrement())
+  key       String   @unique
+  value     String   // JSON string
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("configs")
+}
+
 model User {
   id              Int       @id @default(autoincrement())
   username        String    @unique

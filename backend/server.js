@@ -27,6 +27,16 @@ app.use(express.json());
 
 const configPath = path.join(__dirname, "config.json");
 
+async function getConfig() {
+  const row = await prisma.config.findUnique({ where: { key: "main" } });
+  if (row) return JSON.parse(row.value);
+  // fallback: read from file and seed into DB
+  const raw = fs.readFileSync(configPath, "utf8");
+  const config = JSON.parse(raw);
+  await prisma.config.create({ data: { key: "main", value: JSON.stringify(config) } });
+  return config;
+}
+
 // Serve frontend static files
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -69,59 +79,46 @@ app.post("/api/login", async (req, res) => {
 });
 
 // Endpoint to get the current config
-app.get("/api/config", (req, res) => {
-  fs.readFile(configPath, "utf8", (err, data) => {
-    if (err) {
-      console.error("Error reading config file:", err);
-      return res.status(500).json({ error: "Failed to read config file." });
-    }
-    try {
-      res.json(JSON.parse(data));
-    } catch (parseErr) {
-      console.error("Error parsing config file:", parseErr);
-      return res.status(500).json({ error: "Failed to parse config file." });
-    }
-  });
+app.get("/api/config", async (req, res) => {
+  try {
+    const config = await getConfig();
+    res.json(config);
+  } catch (err) {
+    console.error("Error reading config:", err);
+    res.status(500).json({ error: "Failed to read config." });
+  }
 });
 
 // Endpoint to update the config
-app.post("/api/config", (req, res) => {
-  const newConfig = req.body;
-  fs.writeFile(
-    configPath,
-    JSON.stringify(newConfig, null, 2),
-    "utf8",
-    (err) => {
-      if (err) {
-        console.error("Error writing config file:", err);
-        return res.status(500).json({ error: "Failed to write config file." });
-      }
-      res.json({ success: true, message: "Config updated successfully." });
-    },
-  );
+app.post("/api/config", async (req, res) => {
+  try {
+    const newConfig = req.body;
+    await prisma.config.upsert({
+      where: { key: "main" },
+      update: { value: JSON.stringify(newConfig) },
+      create: { key: "main", value: JSON.stringify(newConfig) },
+    });
+    res.json({ success: true, message: "Config updated successfully." });
+  } catch (err) {
+    console.error("Error writing config:", err);
+    res.status(500).json({ error: "Failed to write config." });
+  }
 });
 
 // Endpoint to run the randomization
-app.post("/api/randomize", (req, res) => {
-  fs.readFile(configPath, "utf8", (err, data) => {
-    if (err) {
-      console.error("Error reading config file:", err);
-      return res.status(500).json({ error: "Failed to read config file." });
-    }
-
-    try {
-      const config = JSON.parse(data);
-      const teams = randomize(config);
-      console.log("Randomization completed successfully.");
-      res.json(teams);
-    } catch (error) {
-      console.error("Randomization error:", error);
-      return res.status(500).json({
-        error: "Failed to randomize teams.",
-        details: error.message,
-      });
-    }
-  });
+app.post("/api/randomize", async (req, res) => {
+  try {
+    const config = await getConfig();
+    const teams = randomize(config);
+    console.log("Randomization completed successfully.");
+    res.json(teams);
+  } catch (error) {
+    console.error("Randomization error:", error);
+    res.status(500).json({
+      error: "Failed to randomize teams.",
+      details: error.message,
+    });
+  }
 });
 
 // ============================================
